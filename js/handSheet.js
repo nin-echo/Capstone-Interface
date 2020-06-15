@@ -56,7 +56,7 @@ function makeRequest(method, url, success, error) {
 
   function importExcel() {
     makeRequest('GET',
-        'https://raw.githubusercontent.com/nin-echo/Capstone-Text-Analysis/nin-echo-patch-1/flexibility%2Cflexible.xlsx',
+        'https://..../flexibility%2Cflexible.xlsx',
         // success
         function (data) {
             console.log(data)
