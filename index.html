@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Capstone-Interface</title>
+
+    <!-- dropDown Style -->
+    <link id="theme-sheet" href="./themes/beanstalk.css" rel="stylesheet" />
+
+    <!-- chart.js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+
+    <!-- spreadsheet -->
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.4.2/dist/handsontable.full.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/handsontable@7.4.2/dist/handsontable.full.min.css" rel="stylesheet"
+        media="screen">
+    <script src="https://unpkg.com/xlsx-style@0.8.13/dist/xlsx.full.min.js"></script>
+
+    <!-- button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+
+
+    <!-- main style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- button style -->
+    <link rel="stylesheet" href="css/buttonStyle.css">
+
+    <!-- list style -->
+    <link rel="stylesheet" href="css/listStyle.css">
+
+    <!-- fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header" id="myHeader">
+        <a class="backToTop" href="#" onclick="backToTop()">Home</a>
+        <h1 style="display: inline-block;">Capstone Text Analysis</h1>
+    </div>
+
+    <div class="content">
+        <div class="above-box">
+
+            <div class="main">
+
+                <div class="left">
+                    <div class="select-Div">
+                        <p>People talks about ...</p>
+                        <select>
+                            <option value="" data-placeholder>Words</option>
+                            <option>Culture</option>
+                            <option>Diversity</option>
+                            <option>Environment</option>
+                            <option>Harassment</option>
+                            <option>Flexibility / Flexible</option>
+                            <option>erg</option>
+                            <option>bro</option>
+                            <option>frat</option>
+                            <option>toxic</option>
+                            <option>hostile</option>
+                            <option>Leadership / Leader</option>
+                            <option>Mentoring / Coaching</option>
+                        </select>
+
+                    </div>
+                    <div class="submit-Div">
+                        <a href="#" onclick="mainStart()" class="button pink" class="pink"
+                            style="margin-bottom: 0;">Load</a>
+                    </div>
+                </div>
+
+                <div class="center" id="center">
+                    <div class="scene scene--card">
+                        <div class="card">
+                            <div class="card__face card__face--front">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                            <div class="card__face card__face--back">
+                                <div
+                                    style="position: absolute; height:100%; width:70%; margin-left: -16%; margin-top: 0; ">
+                                    <canvas id="pieChart"></canvas>
+                                </div>
+                                <div
+                                    style="position: absolute; height:100%; width:70%; margin-left: 37%; margin-top: 0; ">
+                                    <canvas id="radarChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- side bar -->
+                    <div class="change-gender-button">
+                        <a class="genderClick" href="#" onclick="lookUpGenders()">Genders</a>
+                    </div>
+
+                    <!-- <div class="change-area-button">
+                        <a class="areaClick" href="#" onclick="flipCards()">Areas</a>
+                    </div> -->
+
+                    <div class="change-dimensions-button">
+                        <a class="dimensionClick" href="#" onclick="lookUpDimensions()">Dimensions</a>
+                    </div>
+
+                    <div class="total-data-button">
+                        <a class="totalClick" href="#" onclick="totalData()">Total</a>
+                    </div>
+
+                    <div class="transform-button">
+                        <button class="trans_button" onclick="flipCards()"><span id="spanText">Pie </span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leftCorner">
+                <p id="commentText">Related<br>Comments</p>
+                <div class="pointer">
+                    <p></p>
+                    <a class="scrollToBottom" href="#" onclick="importExcel()">Raw SpreadSheet</a>
+                </div>
+            </div>
+
+            <div class="rightCorner">
+                <!-- <div id="handSheet"></div> -->
+                <p id="backTexts">Sample Comments Here.</p>
+                <ol class="gradient-list">
+                </ol>
+            </div>
+
+        </div>
+
+        <div class="below-box">
+            <div id="handSheet"></div>
+        </div>
+
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/dropDownList.js"></script>
+    <!-- DropDown List -->
+    <script src="js/EasyDropDown/easydropdown.js"></script>
+    <script>
+        easydropdown.all()
+    </script>
+    <script src="js/handSheet.js"></script>
+    <script src="js/myChart.js"></script>
+    <script src="js/myComments.js"></script>
+    <script src="js/utils.js"></script>
+
+    <script>
+        // sticky Header
+        window.onscroll = function () { stickHeader() };
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        function stickHeader() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+    </script>
+
+</body>

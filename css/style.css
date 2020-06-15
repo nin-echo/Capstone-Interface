@@ -1,0 +1,290 @@
+* { -webkit-user-select: none; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    margin: 0;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+.above-box {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.below-box {
+    margin-top: 0;
+    height: 100%;
+    position: relative;
+    overflow: scroll;
+}
+
+.backToTop {
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 35%;
+    margin-left: 1rem;
+    color: #C3CFD7;
+}
+
+.header {
+    padding: 10px 16px;
+    background-color: #fff;
+    border-bottom: 2px solid #efefef;
+    z-index: 99;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  
+
+.main {
+    height: 50%;
+    position: relative;
+    background-color: #fafafa;
+}
+
+.main .left {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fafafa;
+    border-right: 1px solid #efefef;
+}
+
+.main .center {
+    height: 100%;
+    margin: 0 0 0 20%;
+    border-left: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+
+
+.select-Div {
+    left: 20%;
+    top: 40%;
+
+    position: absolute;
+}
+
+
+.card {
+    width: 95%;
+    height: 90%;
+    background-color: #fff;
+    left: 2%;
+    top: 5%;
+
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+
+    vertical-align: middle;
+
+    box-shadow: 0 0 10px rgb(216, 209, 209);    
+    border-radius: 10px;
+}
+
+
+.scene {
+    width: 88%;
+    height: 100%;
+    perspective: 600px;
+  }
+  
+  
+  .card.is-flipped {
+    transform: rotateX(180deg);
+  }
+  
+  .card__face {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    margin-left: 4%;
+    margin-top: 2%;
+    align-content: center;
+    background-color: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  
+
+  .card__face--back {
+    transform: rotateX(180deg);
+  }
+
+
+.change-gender-button {
+    top: 10%;
+    right: 0;
+    position: absolute;
+}
+
+.change-area-button {
+    top: 20%;
+    right: 0;
+    position: absolute;
+}
+
+.change-dimensions-button {
+    top: 20%;
+    right: 0;
+    position: absolute;
+}
+
+.total-data-button {
+    top: 50%;
+    right: 0;
+    position: absolute;
+}
+
+.transform-button {
+    top: 80%;
+    right: 5%;
+    position: absolute;
+}
+
+.submit-Div {
+    bottom: 20%;
+    left: 20%;
+    right: 5%;
+    position: absolute;
+}
+
+.genderClick {
+    text-decoration: none;
+    background-color: #C3CFD7; 
+    color: white;
+    padding: 14px 18px;
+}
+
+.genderClick:focus {
+    background-color: #ffcd56; 
+}
+
+.genderClick:hover {
+    background-color: #e6c16b; 
+}
+
+.areaClick {
+    text-decoration: none;
+    background-color: #C3CFD7; 
+    color: white;
+    padding: 14px 30px;
+}
+
+.areaClick:focus {
+    background-color: #ffcd56; 
+}
+
+.areaClick:hover {
+    background-color: #e6c16b; 
+}
+
+.dimensionClick {
+    text-decoration: none;
+    background-color: #C3CFD7; 
+    color: white;
+    font-size: 14px;
+    padding: 14px 10px;
+}
+
+.dimensionClick:focus {
+    background-color: #ffcd56; 
+}
+
+.dimensionClick:hover {
+    background-color: #e6c16b; 
+}
+
+.totalClick {
+    text-decoration: none;
+    background-color: #126ca8; 
+    color: white;
+    padding: 14px 32px;
+}
+
+.leftCorner {
+    width: 20%;
+    height: 40%;
+    float: left;
+    background-color: #fafafa;
+}
+
+#commentText {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: right;
+    padding-top: 4rem;
+    padding-right: 2rem;
+}
+
+#backTexts {
+    font-size: 15px;
+    color: #c4c1c1;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.pointer{
+    position: absolute;
+
+    height: 3.8rem;
+    bottom: 3rem;
+    width: 20%;
+}
+.pointer p{
+    animation: anima-pointer 2s infinite;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background: no-repeat center/10% url("../img/arrow_u.png");
+}
+
+.scrollToBottom {
+    text-decoration: none;
+    color: black;
+    margin-left: 30%;
+    margin-top: 15%;
+    position: absolute;
+}
+ 
+/*animation*/
+@keyframes anima-pointer
+{
+    0%   {opacity:0;bottom:0}
+    100%  {opacity:1;bottom:10px;}
+}
+
+.rightCorner {
+    height: 40%;
+    width: 80%;
+    right: 0;
+    position: absolute;
+    background-color: #fafafa;
+    overflow-y: scroll;
+
+    border-left: 1px solid #efefef;
+}
+ 
+
